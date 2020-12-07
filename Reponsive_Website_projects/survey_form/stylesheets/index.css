@@ -1,11 +1,13 @@
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: border-box; }
 
-html, body {
+html,
+body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: "Caveat", cursive; }
 
 main {
   width: 310px;
@@ -13,7 +15,8 @@ main {
   flex-direction: column-reverse;
   margin: auto;
   padding: 5px;
-  border: 1px solid black; }
+  background: #ffffff;
+  box-shadow: 15px 15px 30px #8a8a8a,  -15px -15px 30px #ffffff; }
 
 .left-panel {
   width: 100%;
@@ -23,10 +26,7 @@ main {
   .left-panel #svg-acceptForm {
     padding: 10px;
     width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    background: #ffffff;
-    box-shadow: inset 1px 1px 10px #666666,  inset -1px -1px 10px #ffffff; }
+    height: 100%; }
   .left-panel footer {
     position: absolute;
     top: 90%;
@@ -49,11 +49,13 @@ main {
   .right-panel .header .text-center {
     text-align: center; }
   .right-panel .header #title {
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 1.75rem;
     margin: 0;
     color: #4fec51ac; }
   .right-panel .header #sub-title {
+    font-weight: 500;
     margin: 0 auto;
     font-size: 1.1rem;
     font-weight: 600; }
@@ -73,41 +75,25 @@ main {
       width: 20px;
       height: 20px; }
 
-@media screen and (min-width: 650px) {
-  main {
-    flex-direction: row;
-    width: 750px;
-    height: 500px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-  .left-panel {
-    width: 500px;
-    height: 100%; }
-  .right-panel .form-group {
-    width: 400px;
-    height: 400px; } }
-
 .survey-form {
   width: 300px;
-  height: 300px;
-  font-size: 1rem; }
+  height: 300px; }
+  .survey-form input[type="text"],
   .survey-form input,
   .survey-form textarea {
+    border: 1px solid #96939361;
     text-align: center;
     padding: 5px;
-    font-size: 1rem;
-    border: 1px solid gray; }
-  .survey-form input[checked] {
-    font-weight: 600; }
+    font-size: 1rem; }
   .survey-form input:hover,
   .survey-form input:active,
   .survey-form input:focus,
-  .survey-form textarea:hover {
+  .survey-form textarea:hover,
+  .survey-form textarea:focus,
+  .survey-form textarea:active {
     border-radius: 5px;
     background: #ffffff;
-    box-shadow: inset 1px 1px 10px #666666,  inset -1px -1px 10px #ffffff;
+    box-shadow: inset 1px 1px 10px #666666, inset -1px -1px 10px #ffffff;
     border: none; }
   .survey-form .form-group {
     width: 100%;
@@ -149,10 +135,16 @@ main {
       animation: all 1s easy-in-out;
       border: none;
       border-radius: 5px;
+      color: #4fec51ac;
       background: #ffffff;
-      box-shadow: 7px 7px 32px #d4d4d4,  -7px -7px 32px #ffffff; }
-    .survey-form .group-04 .submit-button:hover {
-      font-size: 1.3rem; }
+      box-shadow: 7px 7px 32px #d4d4d4, -7px -7px 32px #ffffff; }
+    .survey-form .group-04 .submit-button:hover,
+    .survey-form .group-04 .submit-button:focus,
+    .survey-form .group-04 .submit-button:active {
+      font-size: 1.3rem;
+      background: #ffffff;
+      box-shadow: inset 7px 7px 22px #cfcfcf, inset -7px -7px 22px #ffffff;
+      color: #444040; }
   .survey-form .cols {
     display: flex; }
     .survey-form .cols .col > label {
@@ -162,3 +154,21 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+
+@media screen and (min-width: 650px) {
+  main {
+    flex-direction: row;
+    width: 750px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .left-panel {
+    width: 500px;
+    height: 100%; }
+  .right-panel #title {
+    font-size: 2rem; }
+  .right-panel .form-group {
+    width: 320px;
+    height: 320px; } }

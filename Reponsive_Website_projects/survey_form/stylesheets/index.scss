@@ -1,249 +1,262 @@
-* ,
-*::before,
-*::after{
-    box-sizing: border-box;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
-
-@mixin inner-neumophism{
-    border-radius:5px;
+@mixin neumophism {
     background: #ffffff;
-box-shadow: inset 1px 1px 10px #666666, 
-            inset -1px -1px 10px #ffffff;
+box-shadow:  15px 15px 30px #8a8a8a, 
+             -15px -15px 30px #ffffff;
+}
+@mixin inner-neumophism {
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: inset 1px 1px 10px #666666, inset -1px -1px 10px #ffffff;
 }
 
-
-@mixin btn-style{
-    background: #ffffff;
-    box-shadow:  7px 7px 32px #d4d4d4, 
-                 -7px -7px 32px #ffffff;
+@mixin btn-style {
+  background: #ffffff;
+  box-shadow: 7px 7px 32px #d4d4d4, -7px -7px 32px #ffffff;
 }
 
-html,body {
-    margin:0;
-    padding:0;
+@mixin hover-btn {
+  background: #ffffff;
+  box-shadow: inset 7px 7px 22px #cfcfcf, inset -7px -7px 22px #ffffff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Caveat", cursive;
+
+  // font-family: 'Roboto Slab', serif;
 }
 
 main {
-
-    width: 310px;
-    display: flex;
-    flex-direction: column-reverse;
-    margin:auto;
-    padding: 5px;
-    border:1px solid black;
+  width: 310px;
+  display: flex;
+  flex-direction: column-reverse;
+  margin: auto;
+  padding: 5px;
+ // border: 1px solid black;
+  @include neumophism();
 }
 
-
-
 .left-panel {
-    width: 100%;
-    height:400px;
-    text-align: center;
-    position: relative;
+  width: 100%;
+  height: 400px;
+  text-align: center;
+  position: relative;
   //  border:1px solid black;
-    #svg-acceptForm {
-        padding:10px;
-        width: 100%;
-        height: 100%;
-        @include inner-neumophism();
+  #svg-acceptForm {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+   // @include inner-neumophism();
+  }
+
+  footer {
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    margin: 0 auto;
+
+    svg {
+      margin: 0 5px;
+      animation: all 1s ease-in;
     }
 
-    footer {
-        position: absolute;
-        top: 90%;
-        width: 100%;
-        margin:0 auto;
-
-        svg{
-            margin: 0 5px;
-            animation: all 1s ease-in;
-        }
-
-        svg:hover,
-        svg:focus,
-        svg:active{
-            transform: scale(1.2);
-        }
+    svg:hover,
+    svg:focus,
+    svg:active {
+      transform: scale(1.2);
     }
+  }
 }
 
 .right-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .header {
+    .text-center {
+      text-align: center;
+    }
+
+    #title {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.75rem;
+      margin: 0;
+      color: #4fec51ac;
+    }
+
+    #sub-title {
+      font-weight: 500;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    #description {
+      font-size: 0.9rem;
+      font-style: italic;
+      margin: 0.5em;
+    }
+  }
+
+  .pagination {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    margin: 0 auto;
 
-    .header {
-        .text-center {
-            text-align: center;
-        }
-
-        #title {
-            text-transform: uppercase;
-            font-size: 1.75rem;
-            margin: 0;
-            color:#4fec51ac;
-        }
-
-        #sub-title {
-            margin: 0 auto;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        #description {
-            font-size: 0.9rem;
-            font-style: italic;
-            margin: 0.5em;
-        }
+    #prev,
+    #next {
+      background: transparent;
+      border: none;
     }
 
-    .pagination {
-        display: flex;
-        margin: 0 auto;
-
-        #prev,
-        #next {
-            background: transparent;
-            border: none;
-        }
-
-        #prev svg,
-        #next svg {
-            width: 20px;
-            height: 20px;
-        }
+    #prev svg,
+    #next svg {
+      width: 20px;
+      height: 20px;
     }
-}
-
-@media screen and (min-width: 650px) {
-    main {
-        flex-direction: row;
-        width: 750px;
-        height: 500px;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-    }
-
-    .left-panel {
-        width: 500px;
-        height:100%;
-    }
-
-    .right-panel{
-        .form-group{
-            width:400px;
-            height:400px;
-        }
-    }
+  }
 }
 
 .survey-form {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
+ 
+  input[type="text"],
+  input,
+  textarea {
+    border: 1px solid #96939361;
+    text-align: center;
+    padding: 5px;
     font-size: 1rem;
+  }
 
- input,
- textarea{
-     text-align: center;
-     padding:5px;
-     font-size:1rem;
-    border:1px solid gray;
- }
-
-
- input[checked]{
-     font-weight: 600;
- }
-
- input:hover,
- input:active,
- input:focus,
- textarea:hover {
+  input:hover,
+  input:active,
+  input:focus,
+  textarea:hover,
+  textarea:focus,
+  textarea:active {
     @include inner-neumophism();
-    border:none;
- }
+    border: none;
+  }
 
+  .form-group {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: none;
+   // border:1px solid black;
+  }
+
+  .user {
+    padding: 5px;
+    width: 100%;
+  }
+
+  .group-01 {
+    .user-name > *,
+    .user-email > *,
+    .user-age > * {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      height: 30px;
+    }
+
+    .user-name,
+    .user-email,
+    .user-age {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+  }
+
+  .group-04 {
+    text-align: center;
+
+    #comments {
+      border-radius: 5px;
+      width: 100%;
+      height: 150px;
+      margin: 10px 0;
+    }
+
+    .submit-button {
+      background: #fff;
+      width: 200px;
+      height: 50px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 10px auto;
+      padding: 0.5em 1em;
+      animation: all 1s easy-in-out;
+      border: none;
+      border-radius: 5px;
+      color: #4fec51ac;
+      @include btn-style();
+    }
+
+    .submit-button:hover,
+    .submit-button:focus,
+    .submit-button:active {
+      font-size: 1.3rem;
+      @include hover-btn();
+      color: #444040;
+    }
+  }
+
+  .cols {
+    display: flex;
+
+    .col > label {
+      display: block;
+    }
+  }
+
+  .invisibility {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  main {
+    flex-direction: row;
+    width: 750px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .left-panel {
+    width: 500px;
+    height: 100%;
+  }
+
+  .right-panel {
+    #title{
+        font-size: 2rem;
+    }
 
     .form-group {
-        width:100%;
-        height:100%;
-        padding: 10px;
-        display: none;
-       // @include inner-neumophism();
-       // border: 1px solid black;
+      width: 320px;
+      height: 320px;
     }
-
-    .user {
-        padding: 5px;
-        width: 100%;
-    }
-
-    .group-01 {
-
-        .user-name>*,
-        .user-email>*,
-        .user-age>* {
-            display: block;
-            width: 100%;
-            border-radius: 5px;
-            height: 30px;
-        }
-
-        .user-name,
-        .user-email,
-        .user-age{
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-    }
-
-    .group-04 {
-        text-align: center;
-
-        #comments {
-            border-radius: 5px;
-            width: 100%;
-            height: 150px;
-            margin: 10px 0;
-        }
-
-        .submit-button {
-            background:#fff;
-            width:200px;
-            height:50px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin:10px auto;
-            padding: 0.5em 1em;
-            animation: all 1s easy-in-out;
-            border:none;
-            border-radius: 5px;
-            @include btn-style();
-        }
-
-        .submit-button:hover{
-            font-size:1.3rem;
-        }
-    }
-
-    .cols {
-        display: flex;
-
-        .col>label {
-            display: block;
-        }
-    }
-
-    .invisibility {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  }
 }
